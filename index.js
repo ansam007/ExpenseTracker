@@ -23,6 +23,10 @@ btn.addEventListener('click', function (e) {
     editBtn.className = "editButton";
     editBtn.appendChild(document.createTextNode('Edit'));
 
+    // Add some margin to the Edit button for spacing
+    editBtn.style.marginRight = '10px';
+    editBtn.style.marginLeft = '10px';
+
     deleteBtn.addEventListener('click', function() {
         deleteBtn.parentElement.remove();
         localStorage.removeItem(uniqueKey);
@@ -30,14 +34,15 @@ btn.addEventListener('click', function (e) {
 
     editBtn.addEventListener('click', function(){
         editBtn.parentElement.remove();
+        localStorage.removeItem(uniqueKey);
     })
-
 
     var textContent = obj.expense + "-" + obj.description + "-" + obj.category;
     li.textContent = textContent;
-    li.appendChild(deleteBtn);
     li.appendChild(editBtn);
+    li.appendChild(deleteBtn);
     ul.appendChild(li);
 });
+
 
 
